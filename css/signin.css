@@ -1,0 +1,106 @@
+/* Reset some default styles */
+body,
+html {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: #f8f9fa;
+    color: #495057;
+}
+
+.container-fluid {
+    padding: 0;
+}
+
+/* Spinner Styles */
+#spinner {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Sign In Styles */
+.bg-secondary {
+    background-color: #343a40;
+    color: #ffffff;
+}
+
+.rounded {
+    border-radius: 0.25rem;
+}
+
+.p-4 {
+    padding: 1.5rem !important;
+}
+
+.my-4 {
+    margin-bottom: 1.5rem !important;
+}
+
+.mx-3 {
+    margin-right: 1rem !important;
+    margin-left: 1rem !important;
+}
+
+.text-primary {
+    color: #007bff !important;
+}
+
+.form-floating {
+    position: relative;
+}
+
+.form-floating input {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 0.25rem;
+}
+
+.form-floating label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 1rem;
+    font-size: 0.875rem;
+    color: #6c757d;
+    pointer-events: none;
+    transition: all 0.3s ease-out;
+}
+
+.form-floating input:focus {
+    outline: none;
+}
+
+.form-floating input:focus + label,
+.form-floating input:not(:placeholder-shown) + label {
+    transform: translateY(-1.5rem) scale(0.8);
+    opacity: 0.8;
+}
+
+.form-check-input {
+    margin-top: 0.25rem;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+/* Responsive styles */
+@media (max-width: 576px) {
+    .col-12,
+    .col-sm-8,
+    .col-md-6,
+    .col-lg-5,
+    .col-xl-4 {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+}
