@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Display a globe on a webpage</title>
+    <meta
+      name="viewport"
+      content="initial-scale=1,maximum-scale=1,user-scalable=no"
+    />
+    <link
+      href="https://api.mapbox.com/mapbox-gl-js/v2.11.0/mapbox-gl.css"
+      rel="stylesheet"
+    />
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.11.0/mapbox-gl.js"></script>
+    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.min.js"></script>
+<link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.css' type='text/css' />0
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      #map {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+
+    <script>
+        
+        
+      
+
+      // Using callback
+      
+      	mapboxgl.accessToken = 'pk.eyJ1Ijoic3VyeWFtYXBib3giLCJhIjoiY2xmdmNmZWIwMDNjdzNkcWxoNXdqc2J3eSJ9.5AfPKDIpy5j3F1sO6GrCug';
+          const map = new mapboxgl.Map({
+              container: 'map',
+              // Choose from Mapbox's core styles, or make your own style with Mapbox Studio
+              style: 'mapbox://styles/mapbox/dark-v10',//styles  https://docs.mapbox.com/api/maps/styles/
+              zoom: 9,
+              center: [78.649627,11.385263],//lat long bbox finder
+              projection: 'globe'
+          });
+          // const address = "111 Wellington St, Ottawa, ON K1A 0A9, Canada";
+
+          //   fetch('https://api.mapbox.com/geocoding/v5/mapbox.places/Los%20Angeles.json?access_token=pk.eyJ1Ijoic3VyeWFtYXBib3giLCJhIjoiY2xmdmNmZWIwMDNjdzNkcWxoNXdqc2J3eSJ9.5AfPKDIpy5j3F1sO6GrCug')
+          //   .then((response) => {
+          //       return response.json();
+          //   }).then(jsonData => {
+          //       console.log(jsonData.results[0].geometry.location); // {lat: 45.425152, lng: -75.6998028}
+          //   })
+          //   .catch(error => {
+          //       console.log(error);
+          //   })
+        //     const geocoder = new MapboxGeocoder({
+        //     // Initialize the geocoder
+        //     accessToken: mapboxgl.accessToken, // Set the access token
+        //     mapboxgl: mapboxgl, // Set the mapbox-gl instance
+        //     marker: false // Do not use the default marker style
+        //     });
+        //   map.addControl(geocoder);
+          
+
+            // geocoder.on('result', function(e) {
+            // var lngLat = e.result.center;
+            // console.log('Longitude: ' + lngLat[0]);
+            // console.log('Latitude: ' + lngLat[1]);
+            // });
+
+          const boroughs = [
+              {
+                  name:'Tiruchirappalli',
+                  color:'#ff0000',
+                  lngLat: [78.686025,10.805249]
+              },
+              {
+                  name:'Thanjavur',
+                  color:'#ffff00',
+                  lngLat: [79.136154,10.784744]
+              },
+              {
+                  name:'Karur',
+                  color:'#00ffff',
+                  lngLat: [78.076785,10.961686]
+              },
+              {
+                  name:'Ariyalur',
+                  color:'#ffff00',
+                  lngLat: [79.069084,11.134209]
+              },
+              {
+                  name:'Pudukkottai',
+                  color:'#ff0080',
+                  lngLat: [78.822924,10.378684]
+              },
+              {
+                  name:'Saranathan College',
+                  color:'#ff0080',
+                  lngLat: [78.65128188206685,10.756196579740834]
+              }
+
+          ]
+          boroughs.forEach(({name,color,lngLat}) => {
+
+              const popup = new mapboxgl.Popup({ offset: 25 }).setText(name);
+              new mapboxgl.Marker({
+                  color,
+                  scale: 0.6
+              })
+              .setLngLat(lngLat)
+              .setPopup(popup)
+              .addTo(map);
+
+
+          })
+
+
+          // const popup = new mapboxgl.Popup({ offset: 25 }).setText(
+          //     'Construction on the Washington Monument began in 1848.'
+          // );
+
+          // new mapboxgl.Marker[{
+
+          //     color: '#57fa78d',
+          //     scale: 0.6
+
+          // }]
+          // //adding marker00.0
+          // new mapboxgl.Marker()
+          //     .setLngLat([78.820080,10.382467])
+          //     .setPopup(popup)
+          //     .addTo(map);
+
+
+
+          map.on('load', () => {
+              // Set the default atmosphere style
+              map.setFog({});
+          });
+        </script>
+  </body>
+</html>

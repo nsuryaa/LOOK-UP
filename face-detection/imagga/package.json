@@ -1,0 +1,38 @@
+{
+  
+"type":"module",
+  
+  "dependencies": {
+  
+
+  
+    
+
+  
+  "form-data": "^4.0.0",
+  
+
+  
+    
+
+  
+  "fs": "^0.0.1-security",
+  
+
+  
+    
+
+  
+  "got": "^12.6.0",
+  
+
+  
+    
+
+  
+  "node-fetch": "^2.6.9"
+  
+
+  
+  }
+}
